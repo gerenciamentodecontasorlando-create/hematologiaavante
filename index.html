@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco de Questões - Hematologia | Doenças Hemorrágicas e Coagulopatias</title>
+    <title>Banco de Questões - Hematologia | 20 Questões | Doenças Hemorrágicas e Coagulopatias</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
             margin: 0 auto;
         }
 
-        /* Header */
         .hero {
             background: linear-gradient(135deg, #0f2b3d 0%, #1a3a4f 100%);
             border-radius: 28px;
@@ -40,6 +39,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .hero h1 span {
@@ -73,14 +73,12 @@
             backdrop-filter: blur(4px);
         }
 
-        /* Card da questão */
         .quiz-card {
             background: white;
             border-radius: 32px;
             box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
             overflow: hidden;
             margin-bottom: 25px;
-            transition: all 0.2s;
         }
 
         .quiz-header {
@@ -117,14 +115,13 @@
         }
 
         .question-text {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 600;
             color: #0a2b3e;
-            line-height: 1.4;
+            line-height: 1.45;
             margin-bottom: 28px;
         }
 
-        /* Opções */
         .options-list {
             display: flex;
             flex-direction: column;
@@ -179,7 +176,6 @@
             opacity: 0.85;
         }
 
-        /* Feedback */
         .feedback-area {
             background: #f1f5f9;
             border-radius: 24px;
@@ -225,7 +221,6 @@
             margin-bottom: 6px;
         }
 
-        /* Botões */
         .buttons-row {
             display: flex;
             gap: 15px;
@@ -269,7 +264,6 @@
             transform: scale(1.02);
         }
 
-        /* Resultado final */
         .result-screen {
             text-align: center;
             padding: 40px;
@@ -306,6 +300,7 @@
         }
 
         @media (max-width: 640px) {
+            .hero { padding: 20px; }
             .hero h1 { font-size: 1.4rem; }
             .question-text { font-size: 1.1rem; }
             .quiz-header, .question-content { padding: 18px; }
@@ -316,11 +311,11 @@
 <body>
 <div class="container">
     <div class="hero">
-        <h1>🩸 Banco de Questões <span>Nível Difícil</span></h1>
+        <h1>🩸 Banco de Questões <span>20 Questões • Nível Difícil</span></h1>
         <p>Doenças Hemorrágicas e Coagulopatias • Hematologia Avançada<br>Correção automática + Sugestão de estudo personalizada</p>
         <div class="stats-badge">
-            <div class="badge">📋 20 questões</div>
-            <div class="badge">⚕️ Cenários clínicos complexos</div>
+            <div class="badge">📋 20 questões clínicas</div>
+            <div class="badge">⚕️ Cenários complexos</div>
             <div class="badge">🎯 Feedback imediato</div>
         </div>
     </div>
@@ -337,9 +332,9 @@
           correct: 1, explanation: "Hemofilia A grave é a mais comum (80-85%). Correção imediata descarta inibidor, e padrão de hemartroses é clássico. Mutação de novo possível sem história familiar.",
           study: "📖 Revise via intrínseca: fatores VIII, IX, XI. Entenda teste de mistura (correção imediata vs incubada). Estude genética do F8 e profilaxia com fator VIII recombinante." },
         { text: "Mulher 28 anos, epistaxes recorrentes, menometrorragia intensa. TS prolongado, Fator VIII: 38%, AgVWF: 30%, RCo: 28%. Ausência de multímeros de alto peso molecular. Pai e irmã com sangramento leve. Subtipo mais provável?",
-          options: ["A) Tipo 1", "B) Tipo 2A", "C) Tipo 2B", "D) Tipo 2M", "E) Tipo 3"],
+          options: ["A) Doença de von Willebrand tipo 1", "B) Doença de von Willebrand tipo 2A", "C) Doença de von Willebrand tipo 2B", "D) Doença de von Willebrand tipo 2M", "E) Doença de von Willebrand tipo 3"],
           correct: 1, explanation: "A perda seletiva de multímeros de alto peso molecular define o tipo 2A. Padrão autossômico dominante e disproporção RCo/AgVWF confirmam.",
-          study: "🔬 Estude eletroforese de multímeros do VWF. Diferencie 2A (perda de HMW) de 2B (aumento afinidade por GPIb). Leu sobre teste com ristocetina em baixa dose." },
+          study: "🔬 Estude eletroforese de multímeros do VWF. Diferencie 2A (perda de HMW) de 2B (aumento afinidade por GPIb). Leia sobre teste com ristocetina em baixa dose." },
         { text: "Paciente 55 anos, sepse abdominal, sangramento difuso. TP e TTPA prolongados, fibrinogênio 90mg/dL, D-dímero >5000, plaquetas 65.000, esquizócitos. Conduta imediata para sangramento ativo?",
           options: ["A) Plasma fresco congelado isolado", "B) Crioprecipitado + concentrado de plaquetas", "C) Plaquetas + complexo protrombínico", "D) Ácido tranexâmico isolado", "E) Heparina anticoagulação plena"],
           correct: 1, explanation: "CIVD consumptiva com sangramento grave: priorizar reposição de fibrinogênio (crioprecipitado) e plaquetas. Tratar causa-base.",
@@ -349,7 +344,7 @@
           correct: 2, explanation: "PTI aguda pediátrica com sangramento cutâneo leve: observação devido alta remissão espontânea em semanas.",
           study: "📚 Diretrizes ASH 2019 para PTI. Indicações de IGIV (hemorragia mucosa ou plaquetas <10-20 mil com risco). Fisiopatologia: anticorpos anti-GpIIb/IIIa." },
         { text: "História de TVP recorrente + abortamentos. Em uso de varfarina, INR terapêutico, evoluiu com necrose cutânea em mamas e nádegas. Exame: proteína C 25%. Complicação mais provável?",
-          options: ["A) Reação alérgica à varfarina", "B) Necrose induzida por varfarina + deficiência de prot C", "C) HIT tardia", "D) Vasculite", "E) SAF catastrófica"],
+          options: ["A) Reação alérgica à varfarina", "B) Necrose induzida por varfarina + deficiência de proteína C", "C) HIT tardia", "D) Vasculite leucocitoclástica", "E) SAF catastrófica"],
           correct: 1, explanation: "Necrose por varfarina ocorre na deficiência hereditária de proteína C: queda abrupta da prot C (meia-vida curta) antes dos fatores pró-coagulantes.",
           study: "💊 Farmacogenética da varfarina, sobreposição com heparina. Diferencie púrpura fulminans neonatal (homozigoto). Cascata de anticoagulantes naturais." },
         { text: "Paciente 40 anos, sangramento pós-extração dentária 12h depois, sem outros episódios. TP normal, TTPA 58s (corrige na mistura). História de tio com hemorragia pós-cirúrgica. Deficiência mais provável?",
@@ -361,7 +356,7 @@
           correct: 4, explanation: "Deficiência de fator XIII: coagulação normal nos testes padrão, mas coágulo instável (não cross-linkado). Sangramento umbilical é clássico.",
           study: "🔍 Diagnóstico: teste de solubilidade do coágulo em ureia 5M. O FXIII estabiliza fibrina. Profilaxia com FXIII concentrado." },
         { text: "Gestante 32 semanas, plaquetas 40.000, sem sangramento. História de plaquetopenia na gestação anterior com resolução pós-parto. Sem esplenomegalia. Conduta?",
-          options: ["A) Corticoterapia empírica", "B) IgIV 1g/kg", "C) Parto imediato", "D) Acompanhamento + trombocitopenia gestacional", "E) Mielograma urgente"],
+          options: ["A) Corticoterapia empírica", "B) IgIV 1g/kg", "C) Parto imediato", "D) Acompanhamento - trombocitopenia gestacional", "E) Mielograma urgente"],
           correct: 3, explanation: "Trombocitopenia gestacional benigna (leve, assintomática, 2º/3º trimestre, resolução pós-parto). Não necessita tratamento.",
           study: "🤰 Diagnóstico diferencial: PTI (início precoce, <10.000, histórico prévio). Pré-eclâmpsia/HELLP (com hipertensão)." },
         { text: "Paciente com hemofilia A grave, desenvolveu inibidor alto (>5 UB). Sofre traumatismo craniano com suspeita de hemorragia intracraniana. Melhor agente hemostático?",
@@ -373,13 +368,9 @@
           correct: 1, explanation: "Perda renal de antitrombina III na síndrome nefrótica → estado hipercoagulável → trombose venosa (veia renal, TVP).",
           study: "🩺 Anticoagulantes naturais: antitrombina inibe trombina/fator Xa. Indicações de profilaxia quando albumina <2g/dL." },
         { text: "Criança 5 anos, púrpura fulminans (equimoses necróticas) 48h após varicela. PCR elevado, plaquetas 40.000, TP/TTPA muito prolongados, fibrinogênio indetectável. Diagnóstico?",
-          options: ["A) Púrpura de Henoch-Schönlein", "B) Púrpura trombocitopênica trombótica", "C) Coagulação intravascular disseminada grave pós-infecção", "D) Púrpura fulminans por deficiência de proteína S adquirida", "E) Necrose por varfarina"],
+          options: ["A) Púrpura de Henoch-Schönlein", "B) Púrpura trombocitopênica trombótica", "C) Coagulação intravascular disseminada grave", "D) Púrpura fulminans por deficiência de proteína S adquirida", "E) Necrose por varfarina"],
           correct: 3, explanation: "Púrpura fulminans pós-infecciosa (varicela) por anticorpos anti-proteína S adquiridos → coagulação intravascular + necrose cutânea.",
           study: "⚠️ Emergência: tratar com PFC, anticoagulação, suplemento de proteína S. Diferencie de CIVD clássica." },
-        { text: "Paciente com história de sangramento pós-amigdalectomia, hemartrose rara. Exames: TP normal, TTPA 49s (refratário à correção na mistura com plasma normal, corrige com plasma adsorvido com alumínio). Qual fator deficiente?",
-          options: ["A) Fator VIII", "B) Fator IX", "C) Fator XI", "D) Fator XII", "E) Inibidor de fator VIII"],
-          correct: 0, explanation: "Correção com plasma adsorvido (que contém fator VIII e fibrinogênio, falta fatores II, VII, IX, X) sugere deficiência de fator VIII. Mistura não corrigiu → inibidor? Mas plasma adsorvido corrige → deficiência pura.",
-          study: "🧪 Testes de mistura especiais: plasma adsorvido (fonte de VIII) e plasma envelhecido (fonte de IX)." },
         { text: "Paciente 70 anos, linfoma não Hodgkin, plaquetas 12.000, petéquias + mucosa oral. Sem esplenomegalia. Aspirado de medula com megacariócitos aumentados. Causa mais provável?",
           options: ["A) Mielodisplasia", "B) PTI secundária ao linfoma", "C) Leucemia aguda", "D) Púrpura trombótica trombocitopênica", "E) Aplasia de medula"],
           correct: 1, explanation: "PTI secundária a neoplasias linfoproliferativas: anticorpos antiplaquetas por desregulação imune. Megacariócitos aumentados.",
@@ -439,8 +430,8 @@
                         <h2>🏁 Banco de Questões Concluído!</h2>
                         <div class="result-score">${score} / ${questions.length}</div>
                         <div class="progress-bar"><div class="progress-fill" style="width: ${(score/questions.length)*100}%"></div></div>
-                        <p style="margin: 20px 0; font-size: 1rem;">${score === questions.length ? "Excelente domínio sobre coagulopatias!" : "Revise as sugestões de estudo e tente novamente."}</p>
-                        <button class="btn-next btn-restart" id="finalRestartBtn">🔄 Refazer todas as questões</button>
+                        <p style="margin: 20px 0; font-size: 1rem;">${score === questions.length ? "🏆 Excelente domínio sobre coagulopatias!" : "📚 Revise as sugestões de estudo e tente novamente."}</p>
+                        <button class="btn-next btn-restart" id="finalRestartBtn">🔄 Refazer todas as 20 questões</button>
                     </div>
                 </div>
             `;
@@ -462,10 +453,15 @@
                 if (i === selected && i !== q.correct) optClass += " wrong-highlight";
             }
             const letter = String.fromCharCode(65 + i);
+            // Remove a letra do início do texto (ex: "A) texto" -> "texto")
+            let optionText = q.options[i];
+            if (optionText.match(/^[A-E]\)\s/)) {
+                optionText = optionText.substring(3);
+            }
             optionsHtml += `
                 <div class="${optClass}" data-opt-index="${i}">
                     <div class="option-letter">${letter}</div>
-                    <div class="option-text">${q.options[i].substring(3)}</div>
+                    <div class="option-text">${optionText}</div>
                 </div>
             `;
         }
@@ -473,12 +469,16 @@
         let feedbackHtml = "";
         if (isAnswered) {
             const isCorrect = (selected === q.correct);
+            const correctLetter = String.fromCharCode(65 + q.correct);
+            let correctAnswerText = q.options[q.correct];
+            if (correctAnswerText.match(/^[A-E]\)\s/)) correctAnswerText = correctAnswerText.substring(3);
             feedbackHtml = `
                 <div class="feedback-area">
                     <div class="feedback-title ${isCorrect ? 'correct' : 'wrong'}">
-                        ${isCorrect ? '✅ Resposta correta!' : '❌ Alternativa incorreta'}
+                        ${isCorrect ? '✅ Resposta correta!' : '❌ Resposta incorreta'}
                     </div>
                     <div class="explanation-text"><strong>Justificativa:</strong> ${q.explanation}</div>
+                    <div class="explanation-text" style="margin-top: 8px;"><strong>Resposta correta:</strong> ${correctLetter} - ${correctAnswerText}</div>
                     <div class="study-suggestion">
                         <strong>📚 Sugestão de estudo direcionada:</strong><br>${q.study}
                     </div>
@@ -498,7 +498,7 @@
                     ${feedbackHtml}
                     <div class="buttons-row">
                         <button class="btn-next" id="nextBtn" ${!isAnswered ? "disabled" : ""}>Próxima questão →</button>
-                        <button class="btn-restart" id="restartFromMid">Reiniciar banco</button>
+                        <button class="btn-restart" id="restartFromMid">🔄 Reiniciar banco</button>
                     </div>
                 </div>
             </div>
