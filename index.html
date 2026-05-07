@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Banco de Questões: Coagulopatias e Doenças Hemorrágicas (Nível Difícil)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Questões - Hematologia | Doenças Hemorrágicas e Coagulopatias</title>
     <style>
         * {
             margin: 0;
@@ -12,438 +12,534 @@
         }
 
         body {
-            background: linear-gradient(145deg, #eef2f5 0%, #d9e2e9 100%);
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            padding: 2rem 1rem;
-            color: #1a2c3e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #eef2f7 0%, #dce3ec 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* cabeçalho */
-        .header {
-            text-align: center;
-            margin-bottom: 2.5rem;
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, #0f2b3d 0%, #1a3a4f 100%);
+            border-radius: 28px;
+            padding: 32px 40px;
+            margin-bottom: 28px;
+            color: white;
+            box-shadow: 0 12px 25px -8px rgba(0, 0, 0, 0.2);
         }
 
-        .header h1 {
-            font-size: 2.2rem;
-            background: linear-gradient(135deg, #1e3c4c, #2b5c6f);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.05);
-        }
-
-        .header p {
-            font-size: 1.1rem;
-            color: #2c5368;
-            max-width: 700px;
-            margin: 0.8rem auto 0;
-            border-bottom: 2px solid #aac4d1;
-            display: inline-block;
-            padding-bottom: 6px;
-        }
-
-        .stats {
-            background: white;
-            border-radius: 60px;
-            padding: 8px 20px;
-            display: inline-flex;
-            gap: 1.8rem;
-            margin-top: 1rem;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
-            font-weight: 600;
-        }
-
-        .stats span {
-            color: #1f6e8c;
-            font-size: 1.2rem;
-        }
-
-        /* cartões de questão */
-        .question-card {
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(0px);
-            border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
-            margin-bottom: 2rem;
-            padding: 1.5rem 1.8rem;
-            transition: transform 0.1s ease, box-shadow 0.2s;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .question-card:hover {
-            box-shadow: 0 24px 40px -14px rgba(0, 0, 0, 0.25);
-        }
-
-        .question-text {
-            font-size: 1.35rem;
+        .hero h1 {
+            font-size: 2rem;
             font-weight: 700;
-            color: #0b3b4f;
-            margin-bottom: 1.2rem;
-            padding-bottom: 0.5rem;
-            border-left: 5px solid #c73e3e;
-            padding-left: 1rem;
-            line-height: 1.4;
-        }
-
-        .alternatives {
+            letter-spacing: -0.5px;
             display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-            margin: 1rem 0 1rem 0.5rem;
-        }
-
-        .alt-item {
-            display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 12px;
+        }
+
+        .hero h1 span {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .hero p {
+            margin-top: 12px;
+            opacity: 0.85;
             font-size: 1rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 1.2rem;
-            transition: background 0.1s;
-            cursor: pointer;
+            line-height: 1.5;
         }
 
-        .alt-item:hover {
-            background: #f0f7fa;
+        .stats-badge {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
-        input[type="radio"] {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 1.2rem;
-            height: 1.2rem;
-            border: 2px solid #2c7da0;
-            border-radius: 50%;
-            margin-top: 0.15rem;
-            position: relative;
-            cursor: pointer;
-            background-color: white;
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
         }
 
-        input[type="radio"]:checked {
-            background-color: #2c7da0;
-            border-color: #1f5e7a;
-            box-shadow: inset 0 0 0 3px white;
-        }
-
-        .alt-text {
-            flex: 1;
-            line-height: 1.4;
-            color: #1f3e4b;
-        }
-
-        .feedback-area {
-            margin-top: 1.2rem;
-            padding: 1rem 1.2rem;
-            border-radius: 1.2rem;
-            background: #fef6e0;
-            border-left: 8px solid #e6b91e;
-            font-size: 0.95rem;
+        /* Card da questão */
+        .quiz-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin-bottom: 25px;
             transition: all 0.2s;
         }
 
-        .feedback-correct {
-            background: #e1f7e8;
-            border-left-color: #2b7a3e;
+        .quiz-header {
+            background: #f8fafd;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9edf2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .feedback-wrong {
-            background: #ffe6e5;
-            border-left-color: #c7362b;
+        .question-num {
+            background: #1e3c72;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .score-display {
+            background: #2c5a2e;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .question-content {
+            padding: 30px;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0a2b3e;
+            line-height: 1.4;
+            margin-bottom: 28px;
+        }
+
+        /* Opções */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .option-item {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 14px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: #1e2a3a;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .option-letter {
+            font-weight: 700;
+            color: #1e3c72;
+            min-width: 28px;
+            font-size: 1rem;
+        }
+
+        .option-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        .option-item:hover:not(.disabled-opt) {
+            background: #f1f5f9;
+            border-color: #3b82f6;
+            transform: translateX(6px);
+        }
+
+        .option-item.correct-highlight {
+            background: #dcfce7;
+            border-color: #22c55e;
+        }
+
+        .option-item.wrong-highlight {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .disabled-opt {
+            cursor: default;
+            opacity: 0.85;
+        }
+
+        /* Feedback */
+        .feedback-area {
+            background: #f1f5f9;
+            border-radius: 24px;
+            padding: 22px;
+            margin: 20px 0 25px;
+            border-left: 6px solid #3b82f6;
+        }
+
+        .feedback-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feedback-title.correct {
+            color: #15803d;
+        }
+
+        .feedback-title.wrong {
+            color: #b91c1c;
+        }
+
+        .explanation-text {
+            color: #334155;
+            line-height: 1.5;
+            margin-bottom: 16px;
         }
 
         .study-suggestion {
-            margin-top: 10px;
-            padding-top: 8px;
-            font-style: italic;
-            color: #1d5a6d;
-            border-top: 1px dashed #cbdbe2;
-            font-size: 0.9rem;
+            background: #fff7ed;
+            border-radius: 18px;
+            padding: 16px 18px;
+            border-left: 4px solid #f97316;
+            margin-top: 12px;
         }
 
         .study-suggestion strong {
-            font-weight: 700;
-            color: #b4432c;
+            color: #c2410c;
+            display: block;
+            margin-bottom: 6px;
         }
 
-        hr {
-            margin: 1.2rem 0;
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, #c0d4df, transparent);
+        /* Botões */
+        .buttons-row {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .btn-next, .btn-restart {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-next {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .btn-next:hover:not(:disabled) {
+            background: #0f2b4f;
+            transform: scale(1.02);
+        }
+
+        .btn-next:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .btn-restart {
+            background: #475569;
+            color: white;
+        }
+
+        .btn-restart:hover {
+            background: #1e293b;
+            transform: scale(1.02);
+        }
+
+        /* Resultado final */
+        .result-screen {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .result-score {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3c72;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 30px;
+            height: 14px;
+            width: 70%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #2c5a2e;
+            height: 100%;
+            border-radius: 30px;
+            transition: width 0.3s;
         }
 
         footer {
             text-align: center;
-            margin-top: 2rem;
-            color: #4e6b7a;
-            font-size: 0.85rem;
+            padding: 20px;
+            font-size: 0.75rem;
+            color: #5b6e8c;
         }
 
-        @media (max-width: 700px) {
-            .question-card {
-                padding: 1.2rem;
-            }
-            .question-text {
-                font-size: 1.2rem;
-            }
-            .alt-text {
-                font-size: 0.9rem;
-            }
-            .stats {
-                font-size: 0.9rem;
-                gap: 1rem;
-            }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.4rem; }
+            .question-text { font-size: 1.1rem; }
+            .quiz-header, .question-content { padding: 18px; }
+            .option-item { padding: 10px 14px; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="header">
-        <h1>🧬 HEMATOLOGIA AVANÇADA</h1>
-        <p>Doenças hemorrágicas & coagulopatias — questões de nível difícil</p>
-        <div class="stats">
-            <span>📊 Acertos: <span id="score-counter">0</span> / <span id="total-questions">0</span></span>
-            <span>⚡ Auto correção imediata + sugestão de estudo</span>
+    <div class="hero">
+        <h1>🩸 Banco de Questões <span>Nível Difícil</span></h1>
+        <p>Doenças Hemorrágicas e Coagulopatias • Hematologia Avançada<br>Correção automática + Sugestão de estudo personalizada</p>
+        <div class="stats-badge">
+            <div class="badge">📋 20 questões</div>
+            <div class="badge">⚕️ Cenários clínicos complexos</div>
+            <div class="badge">🎯 Feedback imediato</div>
         </div>
     </div>
 
-    <div id="questions-container"></div>
-    <footer>
-        🧠 Cada resposta oferece feedback instantâneo e sugestão direcionada para aprofundamento.
-    </footer>
+    <div id="quizContainer"></div>
+    <footer>Selecione uma alternativa para ver a correção e sugestões de estudo — progresso salvo automaticamente.</footer>
 </div>
 
 <script>
-    // ---------- BANCO DE QUESTÕES (NÍVEL DIFÍCIL - HEMORRAGIAS E COAGULOPATIAS) ----------
-    const questionsData = [
-        { // Questão 1
-            text: "Paciente masculino, 25 anos, história desde a infância de hemartrose recorrente (joelhos e tornozelos) e hematomas profundos após traumas leves. Exames: Tempo de tromboplastina parcial ativada (TTPA) muito prolongado (80s, controle 30s), tempo de protrombina (TP) normal. Teste de mistura com plasma normal corrige o TTPA para 34s. Quando se utiliza plasma adsorvido por hidróxido de alumínio (remove fatores dependentes de vitamina K), o TTPA do paciente NÃO se corrige (permanece 75s). Qual o diagnóstico mais provável?",
-            options: [
-                "A) Hemofilia A (deficiência de fator VIII)",
-                "B) Hemofilia B (deficiência de fator IX)",
-                "C) Doença de von Willebrand tipo 3",
-                "D) Deficiência de fator XI (hemofilia C)",
-                "E) Anticorpo inibidor adquirido do fator VIII"
-            ],
-            correct: "B",
-            explanation: "O plasma adsorvido contém fator VIII e fibrinogênio, mas remove fatores II, VII, IX, X (dependentes de K). A correção com plasma normal e ausência de correção com plasma adsorvido indica deficiência de fator IX → Hemofilia B. Hemofilia A seria corrigida pelo plasma adsorvido (pois fornece fator VIII).",
-            studySuggestion: "Revise a via intrínseca da coagulação: fatores VIII, IX, XI, XII. Estude a diferença entre plasma adsorvido (fatores K-dependentes removidos) e plasma envelhecido (deficiente em V e VIII). Hemofilia B é ligada ao cromossomo X, deficiência do fator IX. Aprofunde no teste de mistura e inibidores."
-        },
-        { // Questão 2
-            text: "Mulher de 34 anos, sem sangramentos prévios, apresenta três abortos espontâneos de repetição e episódio de trombose venosa profunda em membro inferior. Exames: TP normal (12s), TTPA = 52s (controle 31s); teste de mistura imediata com plasma normal NÃO corrige (TTPA permanece 48s). Anticorpo anticoagulante lúpico positivo, anticardiolipina IgM elevada. Qual é a principal hipótese diagnóstica?",
-            options: [
-                "A) Hemofilia adquirida por anticorpo anti-fator VIII",
-                "B) Síndrome do anticorpo antifosfolípide (SAF)",
-                "C) Deficiência hereditária de proteína C",
-                "D) Púrpura trombocitopênica trombótica (PTT)",
-                "E) Doença de von Willebrand tipo 2N"
-            ],
-            correct: "B",
-            explanation: "TTPA prolongado sem correção na mistura indica presença de inibidor, como anticoagulante lúpico. Associado a trombose, abortos e positividade de anticorpos antifosfolípides, fecha o diagnóstico de Síndrome Antifosfolípide (SAF). Diferente da hemofilia adquirida, que cursa com sangramento.",
-            studySuggestion: "Estude os critérios de classificação de Sydney para SAF: trombose vascular ou complicações obstétricas + anticoagulante lúpico / anticardiolipina / anti‑β2glicoproteína I. O anticoagulante lúpico prolonga testes fosfolipídio-dependentes (TTPA, dRVVT) e não corrige com plasma normal. Leia sobre manejo na gestação e tromboprofilaxia."
-        },
-        { // Questão 3
-            text: "Paciente com cirrose hepática descompensada (Child-Pugh C) apresenta equimoses difusas, gengivorragia espontânea e tempo de sangramento prolongado. Exames laboratoriais: plaquetas = 105.000/mm³ (leve trombocitopenia), TP = 22s (INR 2.1), TTPA = 48s (controle 29s), fibrinogênio normal, dímero D normal. Qual a principal fisiopatologia da coagulopatia nesse caso?",
-            options: [
-                "A) Deficiência de fatores de coagulação dependentes de vitamina K por má absorção intestinal",
-                "B) Coagulação intravascular disseminada (CIVD) crônica",
-                "C) Deficiência combinada de fatores de coagulação (síntese hepática reduzida)",
-                "D) Hemofilia A adquirida por autoanticorpos",
-                "E) Deficiência isolada de fator VII"
-            ],
-            correct: "C",
-            explanation: "O fígado sintetiza todos os fatores de coagulação, exceto fator VIII (parcialmente) e vWF. Na insuficiência hepática grave, há deficiência múltipla (II, V, VII, IX, X, XI, fibrinogênio). TP (avalia via extrínseca e comum) e TTPA (via intrínseca) prolongados, sem sinais de CIVD, confirmam síntese reduzida.",
-            studySuggestion: "Relacione a função hepática com a hemostasia: produção de fatores II, VII, IX, X (dependentes de K), V, XI, fibrinogênio, além de inibidores (proteína C, S, antitrombina). Entenda por que o TP é o primeiro a se alterar na disfunção hepática (meia-vida curta do fator VII). Aborde estratégias de reposição."
-        },
-        { // Questão 4
-            text: "Um paciente de 55 anos, previamente hígido, apresenta episódios de sangramento muscular e hematomas extensos iniciados há 2 meses. Exames iniciais: TTPA = 78s (corrige imediatamente com plasma normal para 35s). Entretanto, após incubação da mistura paciente + plasma normal a 37°C por 2 horas, o TTPA torna a prolongar para 65s. O TP e o tempo de trombina são normais. Qual a conduta diagnóstica mais provável?",
-            options: [
-                "A) Hemofilia A leve (deficiência parcial fator VIII)",
-                "B) Inibidor adquirido específico contra o fator VIII (anticorpo inativador tempo-dependente)",
-                "C) Anticoagulante lúpico (com comportamento paradoxal)",
-                "D) Deficiência de fator XII (contato)",
-                "E) Doença de von Willebrand tipo 2A"
-            ],
-            correct: "B",
-            explanation: "Correção imediata na mistura indica ausência de inibidor inicial, mas o prolongamento após incubação sugere inibidor específico (geralmente anti-fator VIII) que age ao longo do tempo. Esse padrão é clássico de hemofilia adquirida, especialmente por autoanticorpos contra o fator VIII.",
-            studySuggestion: "Diferencie inibidor tempo-dependente (anticorpo neutralizante – hemofilia adquirida) de anticoagulante lúpico (não tempo-dependente, não corrige com mistura). Hemofilia adquirida se associa a doenças autoimunes, pós-parto, neoplasias. Estude o manejo com agentes bypass (FEIBA, rFVIIa) e imunossupressão."
-        },
-        { // Questão 5
-            text: "Recém-nascido de termo, 5 dias de vida, alimentado exclusivamente com leite materno (sem profilaxia com vitamina K ao nascimento), apresenta sangramento umbilical persistente e hematêmese. Exames: TP = 28s (controle 13s), TTPA = 68s (controle 35s), plaquetas normais, fibrinogênio normal. Após administração parenteral de vitamina K, o quadro se reverte em 6 horas. Qual a alteração fisiopatológica central?",
-            options: [
-                "A) Deficiência congênita de fator VII (hemofilia hereditária)",
-                "B) Hemorragia por deficiência de vitamina K do recém-nascido (doença hemorrágica clássica)",
-                "C) Hemofilia A grave manifestada precocemente por mutação 'de novo'",
-                "D) Doença de von Willebrand tipo 3 (sangramento mucocutâneo)",
-                "E) Deficiência de proteína C homozigótica (púrpura fulminante)"
-            ],
-            correct: "B",
-            explanation: "A deficiência de vitamina K no período neonatal (leite materno pobre em vitamina K + flora intestinal imatura) leva à redução dos fatores II, VII, IX e X. A rápida correção com vitamina K parenteral confirma o diagnóstico. A apresentação no 5º dia é clássica da doença hemorrágica do recém-nascido tardia? Na verdade, precoce (2-7 dias).",
-            studySuggestion: "Entenda a fisiologia: a vitamina K é cofator da carboxilação dos fatores dependentes (II, VII, IX, X) e proteínas C e S. A profilaxia com vitamina K ao nascer é obrigatória. Distinga doença hemorrágica precoce (<24h), clássica (2-7d) e tardia (2-12 semanas). Relacione com icterícia e colestase."
-        },
-        { // Questão 6 (extra para banco robusto)
-            text: "Paciente jovem de 17 anos, com história familiar de sangramento (mãe e avô materno). Apresenta hematomas fáceis e epistaxe frequente. Exames: tempo de sangramento prolongado, TTPA discretamente aumentado (39s, controle 30s), fator VIII reduzido (23%), vWF:Ag baixo (12%), atividade do cofator da ristocetina (vWF:RCo) = 9%. Qual o subtipo mais provável da doença de von Willebrand?",
-            options: [
-                "A) Tipo 1 (deficiência quantitativa parcial)",
-                "B) Tipo 2A (deficiência qualitativa, ausência de multímeros de alto peso)",
-                "C) Tipo 2B (ganho de função com trombocitopenia)",
-                "D) Tipo 3 (deficiência quantitativa grave, níveis indetectáveis)",
-                "E) Tipo 2N (afinidade reduzida pelo fator VIII)"
-            ],
-            correct: "D",
-            explanation: "Níveis extremamente baixos de vWF (<10-15%) e fator VIII reduzido secundariamente, sem atividade detectável de cofator, mais herdado de forma autossômica recessiva, configura doença de von Willebrand tipo 3, a forma mais grave. História familiar compatível (pais heterozigotos).",
-            studySuggestion: "Aprofunde a classificação da doença de von Willebrand: tipo 1 (parcial), tipo 3 (total), tipo 2 (qualitativo – 2A, 2B, 2M, 2N). O tratamento varia entre desmopressina (tipos 1 e algumas 2) e concentrados de vWF/fator VIII no tipo 3. Revise fisiologia do vWF na adesão plaquetária e estabilização do fator VIII."
-        }
+    // ==================== 20 QUESTÕES - NÍVEL DIFÍCIL ====================
+    const questions = [
+        { text: "Homem de 32 anos, hemartroses recorrentes desde a infância (joelhos e tornozelos), sem história familiar. TTPA muito prolongado com correção total na mistura com plasma normal (teste imediato). TP normal. Qual o diagnóstico mais provável?",
+          options: ["A) Doença de von Willebrand tipo 3", "B) Hemofilia A grave (deficiência fator VIII)", "C) Hemofilia B moderada", "D) Deficiência de fator XI", "E) Inibidor adquirido contra fator VIII"],
+          correct: 1, explanation: "Hemofilia A grave é a mais comum (80-85%). Correção imediata descarta inibidor, e padrão de hemartroses é clássico. Mutação de novo possível sem história familiar.",
+          study: "📖 Revise via intrínseca: fatores VIII, IX, XI. Entenda teste de mistura (correção imediata vs incubada). Estude genética do F8 e profilaxia com fator VIII recombinante." },
+        { text: "Mulher 28 anos, epistaxes recorrentes, menometrorragia intensa. TS prolongado, Fator VIII: 38%, AgVWF: 30%, RCo: 28%. Ausência de multímeros de alto peso molecular. Pai e irmã com sangramento leve. Subtipo mais provável?",
+          options: ["A) Tipo 1", "B) Tipo 2A", "C) Tipo 2B", "D) Tipo 2M", "E) Tipo 3"],
+          correct: 1, explanation: "A perda seletiva de multímeros de alto peso molecular define o tipo 2A. Padrão autossômico dominante e disproporção RCo/AgVWF confirmam.",
+          study: "🔬 Estude eletroforese de multímeros do VWF. Diferencie 2A (perda de HMW) de 2B (aumento afinidade por GPIb). Leu sobre teste com ristocetina em baixa dose." },
+        { text: "Paciente 55 anos, sepse abdominal, sangramento difuso. TP e TTPA prolongados, fibrinogênio 90mg/dL, D-dímero >5000, plaquetas 65.000, esquizócitos. Conduta imediata para sangramento ativo?",
+          options: ["A) Plasma fresco congelado isolado", "B) Crioprecipitado + concentrado de plaquetas", "C) Plaquetas + complexo protrombínico", "D) Ácido tranexâmico isolado", "E) Heparina anticoagulação plena"],
+          correct: 1, explanation: "CIVD consumptiva com sangramento grave: priorizar reposição de fibrinogênio (crioprecipitado) e plaquetas. Tratar causa-base.",
+          study: "⚠️ Critérios ISTH para CIVD. Saiba quando usar crioprecipitado (fibrinogênio <100-150). Heparina controversa no sangramento ativo." },
+        { text: "Criança 6 anos, equimoses + petéquias pós-viral. Plaquetas 8.000, Hb normal, megacariócitos aumentados. Sem sangramento grave (apenas cutâneo). Primeira linha?",
+          options: ["A) Prednisona 2-4mg/kg", "B) Imunoglobulina IV 1g/kg", "C) Conduta expectante", "D) Esplenectomia urgente", "E) Rituximabe"],
+          correct: 2, explanation: "PTI aguda pediátrica com sangramento cutâneo leve: observação devido alta remissão espontânea em semanas.",
+          study: "📚 Diretrizes ASH 2019 para PTI. Indicações de IGIV (hemorragia mucosa ou plaquetas <10-20 mil com risco). Fisiopatologia: anticorpos anti-GpIIb/IIIa." },
+        { text: "História de TVP recorrente + abortamentos. Em uso de varfarina, INR terapêutico, evoluiu com necrose cutânea em mamas e nádegas. Exame: proteína C 25%. Complicação mais provável?",
+          options: ["A) Reação alérgica à varfarina", "B) Necrose induzida por varfarina + deficiência de prot C", "C) HIT tardia", "D) Vasculite", "E) SAF catastrófica"],
+          correct: 1, explanation: "Necrose por varfarina ocorre na deficiência hereditária de proteína C: queda abrupta da prot C (meia-vida curta) antes dos fatores pró-coagulantes.",
+          study: "💊 Farmacogenética da varfarina, sobreposição com heparina. Diferencie púrpura fulminans neonatal (homozigoto). Cascata de anticoagulantes naturais." },
+        { text: "Paciente 40 anos, sangramento pós-extração dentária 12h depois, sem outros episódios. TP normal, TTPA 58s (corrige na mistura). História de tio com hemorragia pós-cirúrgica. Deficiência mais provável?",
+          options: ["A) Fator VIII", "B) Fator IX", "C) Fator XI", "D) Fator VII", "E) Fator XIII"],
+          correct: 2, explanation: "Deficiência de fator XI (Hemofilia C) cursa com sangramento tardio pós-trauma/cirurgia, autossômica, maior prevalência em judeus asquenazitas.",
+          study: "🧬 Revise via intrínseca: fator XI ativado pela trombina. Hemofilia C não tem hemartroses espontâneas. Tratamento: antifibrinolíticos ou PFC." },
+        { text: "Homem 23 anos, sangramento umbilical ao nascimento, hematomas profundos, hemartrose aos 6 anos. TP e TTPA normais, tromboelastograma anormal. Qual deficiência?",
+          options: ["A) Fator II", "B) Fator V", "C) Fator VII", "D) Fator X", "E) Fator XIII"],
+          correct: 4, explanation: "Deficiência de fator XIII: coagulação normal nos testes padrão, mas coágulo instável (não cross-linkado). Sangramento umbilical é clássico.",
+          study: "🔍 Diagnóstico: teste de solubilidade do coágulo em ureia 5M. O FXIII estabiliza fibrina. Profilaxia com FXIII concentrado." },
+        { text: "Gestante 32 semanas, plaquetas 40.000, sem sangramento. História de plaquetopenia na gestação anterior com resolução pós-parto. Sem esplenomegalia. Conduta?",
+          options: ["A) Corticoterapia empírica", "B) IgIV 1g/kg", "C) Parto imediato", "D) Acompanhamento + trombocitopenia gestacional", "E) Mielograma urgente"],
+          correct: 3, explanation: "Trombocitopenia gestacional benigna (leve, assintomática, 2º/3º trimestre, resolução pós-parto). Não necessita tratamento.",
+          study: "🤰 Diagnóstico diferencial: PTI (início precoce, <10.000, histórico prévio). Pré-eclâmpsia/HELLP (com hipertensão)." },
+        { text: "Paciente com hemofilia A grave, desenvolveu inibidor alto (>5 UB). Sofre traumatismo craniano com suspeita de hemorragia intracraniana. Melhor agente hemostático?",
+          options: ["A) Fator VIII recombinante dose alta", "B) Concentrado de complexo protrombínico ativado (FEIBA)", "C) Plasma fresco congelado", "D) Ácido tranexâmico", "E) Desmopressina (DDAVP)"],
+          correct: 1, explanation: "FEIBA (fator eight inhibitor bypassing activity) ou rFVIIa são agentes de bypass para inibidores altos. FEIBA é eficaz na emergência.",
+          study: "⚠️ Tratamento de sangramento com inibidor: rFVIIa (NovoSeven) ou FEIBA. Evitar fator VIII isolado. Protocolo de imunotolerância." },
+        { text: "Mulher 45 anos, síndrome nefrótica por amiloidose, apresenta trombose de veia renal e hematomas. Antitrombina III: 45%. Qual mecanismo da trombose associada?",
+          options: ["A) Hiperagregação plaquetária", "B) Perda urinária de antitrombina III", "C) Deficiência de proteína C", "D) Resistência à proteína C ativada", "E) Inibidor lúpico"],
+          correct: 1, explanation: "Perda renal de antitrombina III na síndrome nefrótica → estado hipercoagulável → trombose venosa (veia renal, TVP).",
+          study: "🩺 Anticoagulantes naturais: antitrombina inibe trombina/fator Xa. Indicações de profilaxia quando albumina <2g/dL." },
+        { text: "Criança 5 anos, púrpura fulminans (equimoses necróticas) 48h após varicela. PCR elevado, plaquetas 40.000, TP/TTPA muito prolongados, fibrinogênio indetectável. Diagnóstico?",
+          options: ["A) Púrpura de Henoch-Schönlein", "B) Púrpura trombocitopênica trombótica", "C) Coagulação intravascular disseminada grave pós-infecção", "D) Púrpura fulminans por deficiência de proteína S adquirida", "E) Necrose por varfarina"],
+          correct: 3, explanation: "Púrpura fulminans pós-infecciosa (varicela) por anticorpos anti-proteína S adquiridos → coagulação intravascular + necrose cutânea.",
+          study: "⚠️ Emergência: tratar com PFC, anticoagulação, suplemento de proteína S. Diferencie de CIVD clássica." },
+        { text: "Paciente com história de sangramento pós-amigdalectomia, hemartrose rara. Exames: TP normal, TTPA 49s (refratário à correção na mistura com plasma normal, corrige com plasma adsorvido com alumínio). Qual fator deficiente?",
+          options: ["A) Fator VIII", "B) Fator IX", "C) Fator XI", "D) Fator XII", "E) Inibidor de fator VIII"],
+          correct: 0, explanation: "Correção com plasma adsorvido (que contém fator VIII e fibrinogênio, falta fatores II, VII, IX, X) sugere deficiência de fator VIII. Mistura não corrigiu → inibidor? Mas plasma adsorvido corrige → deficiência pura.",
+          study: "🧪 Testes de mistura especiais: plasma adsorvido (fonte de VIII) e plasma envelhecido (fonte de IX)." },
+        { text: "Paciente 70 anos, linfoma não Hodgkin, plaquetas 12.000, petéquias + mucosa oral. Sem esplenomegalia. Aspirado de medula com megacariócitos aumentados. Causa mais provável?",
+          options: ["A) Mielodisplasia", "B) PTI secundária ao linfoma", "C) Leucemia aguda", "D) Púrpura trombótica trombocitopênica", "E) Aplasia de medula"],
+          correct: 1, explanation: "PTI secundária a neoplasias linfoproliferativas: anticorpos antiplaquetas por desregulação imune. Megacariócitos aumentados.",
+          study: "📖 PTI secundário: linfoma, LLC, LES, hepatite C. Tratamento com IGIV, corticosteroides ou rituximabe." },
+        { text: "Qual teste laboratorial diferencia defeito de adesão plaquetária (Doença de Bernard-Soulier) de defeito de agregação (Glanzmann)?",
+          options: ["A) Tempo de sangramento", "B) Tromboelastografia", "C) Agregação plaquetária com ristocetina", "D) Dosagem de fator de von Willebrand", "E) Contagem de plaquetas"],
+          correct: 2, explanation: "Bernard-Soulier: ausência de GPIb/IX/V → não agrega com ristocetina (mas agrega com outros agonistas). Glanzmann: agrega normal com ristocetina, defeito com ADP/colágeno.",
+          study: "🩸 Receptores plaquetários: GPIb (aderência ao VWF), GPIIb/IIIa (agregação via fibrinogênio)." },
+        { text: "Homem 50 anos, em uso de clopidogrel, sofre AVC hemorrágico. Plaquetas 180.000, TP/TTPA normais. Qual melhor agente reverter antiagregação?",
+          options: ["A) Vitamina K", "B) Plasma fresco", "C) Transfusão de plaquetas", "D) Desmopressina (DDAVP)", "E) Complexo protrombínico"],
+          correct: 2, explanation: "Transfusão de plaquetas é a estratégia para reverter efeito de antiagregantes (clopidogrel, AAS) em sangramento grave intracraniano.",
+          study: "🚨 Reversão de antiplaquetários: plaquetas. Para anticoagulantes: específicos (idarucizumabe, andexanet)." },
+        { text: "Paciente 3 anos, hemofilia A grave, em profilaxia com fator VIII, apresenta sangramento articular agudo em joelho. Dose recomendada para tratamento domiciliar?",
+          options: ["A) 10 UI/kg", "B) 25 UI/kg", "C) 50 UI/kg", "D) 75 UI/kg", "E) 100 UI/kg"],
+          correct: 2, explanation: "Tratamento de sangramento agudo na hemofilia A: 40-50 UI/kg a cada 12-24h até resolução por 1-2 dias.",
+          study: "💉 Cálculo de reposição: cada UI/kg aumenta fator VIII em 2%. Alvo: 50-80% para hemartrose. Importância de anti-fibrinolíticos." },
+        { text: "Gestante com pré-eclâmpsia grave, AST 400, plaquetas 35.000, LDH 800, hemoglobina 9g/dL com esquizócitos. Qual o diagnóstico e conduta?",
+          options: ["A) PTI + cesariana", "B) Síndrome HELLP + parto imediato", "C) PTT + plasmaférese", "D) CIVD + reposição", "E) HUS + diálise"],
+          correct: 1, explanation: "HELLP (Hemolysis, Elevated Liver enzymes, Low Platelets) variante grave de pré-eclâmpsia. Conduta: parto imediato + suporte.",
+          study: "🤰 HELLP: diferenciar de PTT (tríade: anemia hemolítica, plaquetopenia, sintomas neurológicos sem hipertensão)." },
+        { text: "Paciente com cirrose hepática Child C, TP INR 2.8, plaquetas 45.000, apresenta hematêmese por varizes. Medida imediata para coagulopatia?",
+          options: ["A) Vitamina K 10mg IV", "B) Plasma fresco congelado + plaquetas", "C) Crioprecipitado", "D) Ácido tranexâmico", "E) Fator VII recombinante"],
+          correct: 1, explanation: "Na hemorragia aguda por varizes em cirrótico, recomenda-se transfusão de plaquetas (se <50k) + plasma fresco (INR >1.5-2) além da terapia endoscópica.",
+          study: "🏥 Coagulopatia da cirrose: defeito complexo (plaquetas, fatores, hiperfibrinólise). Evite correção excessiva." },
+        { text: "Qual característica laboratorial da púrpura trombocitopênica trombótica (PTT) em relação ao fator de von Willebrand?",
+          options: ["A) Redução de multímeros HMW", "B) Aumento da proteólise do VWF por ADAMTS13 deficiente", "C) Ausência de antígeno VWF", "D) Aumento da atividade do cofator da ristocetina", "E) Multímeros anormais tipo 2A"],
+          correct: 1, explanation: "Na PTT, deficiência severa de ADAMTS13 leva a multímeros ultragrandes de VWF não clivados, promovendo trombose microvascular.",
+          study: "🔬 ADAMTS13 cliva VWF. PTT hereditária (Upshaw-Schülman) ou adquirida (autoanticorpos). Plasmaférese urgente." },
+        { text: "Paciente 25 anos, hemoptise, hematúria, cefaleia, plaquetas 18.000, creatinina 2.5. Periférico: esquizócitos +++, reticulócitos 8%. Qual melhor tratamento imediato?",
+          options: ["A) Corticoterapia em altas doses", "B) Plasmaférese diária", "C) Esplenectomia", "D) Imunoglobulina IV", "E) Rituximabe"],
+          correct: 1, explanation: "Síndrome de PTT (pentade: plaquetopenia, anemia hemolítica microangiopática, neurológico, renal, febre) → plasmaférese urgente + corticóide.",
+          study: "🚨 Emergência hematológica: plasmaférese dentro de 4-8h do diagnóstico. Mortalidade reduz de 90% para 10-20%." }
     ];
 
-    // total de questões dinâmico
-    const totalQ = questionsData.length;
-    document.getElementById('total-questions').innerText = totalQ;
+    let currentIndex = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+    let answerLocked = false;
 
-    // estado: respostas selecionadas (por índice da questão: armazena a letra escolhida ou null)
-    let userAnswers = new Array(totalQ).fill(null);
-    // estado para saber se já respondeu (apenas para feedback visual, mas pode mudar)
-    // controle de acertos
-    let score = 0;
-
-    // função para recalcular score com base nas respostas atuais
-    function updateScore() {
-        let newScore = 0;
-        for (let i = 0; i < totalQ; i++) {
-            if (userAnswers[i] !== null && userAnswers[i] === questionsData[i].correct) {
-                newScore++;
-            }
+    function recalcScore() {
+        let correct = 0;
+        for (let i = 0; i < questions.length; i++) {
+            if (userAnswers[i] !== null && userAnswers[i] === questions[i].correct) correct++;
         }
-        score = newScore;
-        document.getElementById('score-counter').innerText = score;
+        return correct;
     }
 
-    // função para renderizar todas as questões dinamicamente
-    function renderQuestions() {
-        const container = document.getElementById('questions-container');
-        container.innerHTML = '';
-        for (let i = 0; i < totalQ; i++) {
-            const q = questionsData[i];
-            const card = document.createElement('div');
-            card.className = 'question-card';
-            card.id = `q-card-${i}`;
+    function render() {
+        const container = document.getElementById("quizContainer");
+        if (!container) return;
 
-            // texto da pergunta
-            const questionTextDiv = document.createElement('div');
-            questionTextDiv.className = 'question-text';
-            questionTextDiv.innerText = `${i+1}. ${q.text}`;
-            card.appendChild(questionTextDiv);
-
-            // alternativas
-            const altContainer = document.createElement('div');
-            altContainer.className = 'alternatives';
-            // criar para cada opção
-            q.options.forEach((opt, optIdx) => {
-                const letter = String.fromCharCode(65 + optIdx); // A, B, C, D, E
-                const altItem = document.createElement('div');
-                altItem.className = 'alt-item';
-                const radio = document.createElement('input');
-                radio.type = 'radio';
-                radio.name = `q${i}`;
-                radio.value = letter;
-                radio.id = `q${i}_${letter}`;
-                // se já existe resposta prévia, checar
-                if (userAnswers[i] === letter) {
-                    radio.checked = true;
-                }
-                radio.addEventListener('change', (function(idx, selectedLetter) {
-                    return function() {
-                        if (this.checked) {
-                            // atualiza estado
-                            userAnswers[idx] = selectedLetter;
-                            // atualiza o feedback da questão específica
-                            updateQuestionFeedback(idx);
-                            updateScore();
-                        }
-                    };
-                })(i, letter));
-                
-                const altTextSpan = document.createElement('span');
-                altTextSpan.className = 'alt-text';
-                altTextSpan.innerHTML = `<strong>${letter}</strong> – ${opt}`;
-                altItem.appendChild(radio);
-                altItem.appendChild(altTextSpan);
-                altContainer.appendChild(altItem);
-            });
-            card.appendChild(altContainer);
-
-            // área de feedback (resultado + sugestão)
-            const feedbackDiv = document.createElement('div');
-            feedbackDiv.id = `feedback-${i}`;
-            feedbackDiv.className = 'feedback-area';
-            // se já tiver resposta, preencher
-            if (userAnswers[i] !== null) {
-                generateFeedbackContent(i, feedbackDiv);
-            } else {
-                feedbackDiv.innerHTML = '<span>📌 Selecione uma alternativa para verificar seu conhecimento e receber sugestão de estudo.</span>';
-            }
-            card.appendChild(feedbackDiv);
-            container.appendChild(card);
-        }
-    }
-
-    // gera conteúdo do feedback com base na resposta do usuário para questão index
-    function generateFeedbackContent(index, feedbackElement) {
-        const q = questionsData[index];
-        const userChoice = userAnswers[index];
-        if (userChoice === null) {
-            feedbackElement.innerHTML = '<span>⚡ Aguardando resposta...</span>';
-            feedbackElement.className = 'feedback-area';
+        const score = recalcScore();
+        
+        if (currentIndex >= questions.length) {
+            container.innerHTML = `
+                <div class="quiz-card">
+                    <div class="result-screen">
+                        <h2>🏁 Banco de Questões Concluído!</h2>
+                        <div class="result-score">${score} / ${questions.length}</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${(score/questions.length)*100}%"></div></div>
+                        <p style="margin: 20px 0; font-size: 1rem;">${score === questions.length ? "Excelente domínio sobre coagulopatias!" : "Revise as sugestões de estudo e tente novamente."}</p>
+                        <button class="btn-next btn-restart" id="finalRestartBtn">🔄 Refazer todas as questões</button>
+                    </div>
+                </div>
+            `;
+            const restartBtn = document.getElementById("finalRestartBtn");
+            if (restartBtn) restartBtn.addEventListener("click", () => restartQuiz());
             return;
         }
-        const isCorrect = (userChoice === q.correct);
-        // define classe CSS
-        if (isCorrect) {
-            feedbackElement.className = 'feedback-area feedback-correct';
-        } else {
-            feedbackElement.className = 'feedback-area feedback-wrong';
+
+        const q = questions[currentIndex];
+        const selected = userAnswers[currentIndex];
+        const isAnswered = selected !== null;
+
+        let optionsHtml = "";
+        for (let i = 0; i < q.options.length; i++) {
+            let optClass = "option-item";
+            if (isAnswered) {
+                optClass += " disabled-opt";
+                if (i === q.correct) optClass += " correct-highlight";
+                if (i === selected && i !== q.correct) optClass += " wrong-highlight";
+            }
+            const letter = String.fromCharCode(65 + i);
+            optionsHtml += `
+                <div class="${optClass}" data-opt-index="${i}">
+                    <div class="option-letter">${letter}</div>
+                    <div class="option-text">${q.options[i].substring(3)}</div>
+                </div>
+            `;
         }
-        const correctLetter = q.correct;
-        const correctText = q.options.find(opt => opt.startsWith(correctLetter + ')') || opt.startsWith(correctLetter + ' –') ? opt : q.options[correctLetter.charCodeAt(0)-65]);
-        // Montar texto de correção
-        let resultHtml = '';
-        if (isCorrect) {
-            resultHtml = `<span>✅ <strong>CORRETO!</strong> Sua resposta ${userChoice} está certa.</span><br>`;
-        } else {
-            resultHtml = `<span>❌ <strong>INCORRETO.</strong> Você marcou ${userChoice}. A alternativa correta é <strong>${correctLetter}</strong>.</span><br>`;
-            resultHtml += `<span style="font-size:0.9rem;">🔍 ${q.explanation.substring(0, 200)}${q.explanation.length > 200 ? '…' : ''}</span><br>`;
+
+        let feedbackHtml = "";
+        if (isAnswered) {
+            const isCorrect = (selected === q.correct);
+            feedbackHtml = `
+                <div class="feedback-area">
+                    <div class="feedback-title ${isCorrect ? 'correct' : 'wrong'}">
+                        ${isCorrect ? '✅ Resposta correta!' : '❌ Alternativa incorreta'}
+                    </div>
+                    <div class="explanation-text"><strong>Justificativa:</strong> ${q.explanation}</div>
+                    <div class="study-suggestion">
+                        <strong>📚 Sugestão de estudo direcionada:</strong><br>${q.study}
+                    </div>
+                </div>
+            `;
         }
-        // explicação curta + sugestão de estudo
-        const studyHtml = `<div class="study-suggestion"><strong>📘 SUGESTÃO DE ESTUDO:</strong> ${q.studySuggestion}</div>`;
-        feedbackElement.innerHTML = resultHtml + studyHtml;
+
+        container.innerHTML = `
+            <div class="quiz-card">
+                <div class="quiz-header">
+                    <div class="question-num">Questão ${currentIndex+1} de ${questions.length}</div>
+                    <div class="score-display">🎯 Acertos: ${score}</div>
+                </div>
+                <div class="question-content">
+                    <div class="question-text">${q.text}</div>
+                    <div class="options-list" id="optionsList">${optionsHtml}</div>
+                    ${feedbackHtml}
+                    <div class="buttons-row">
+                        <button class="btn-next" id="nextBtn" ${!isAnswered ? "disabled" : ""}>Próxima questão →</button>
+                        <button class="btn-restart" id="restartFromMid">Reiniciar banco</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        if (!isAnswered) {
+            const optDivs = document.querySelectorAll("#optionsList .option-item");
+            optDivs.forEach(div => {
+                div.addEventListener("click", () => {
+                    if (answerLocked || userAnswers[currentIndex] !== null) return;
+                    const idx = parseInt(div.getAttribute("data-opt-index"));
+                    if (!isNaN(idx)) {
+                        userAnswers[currentIndex] = idx;
+                        answerLocked = true;
+                        render();
+                    }
+                });
+            });
+        }
+
+        const nextBtn = document.getElementById("nextBtn");
+        if (nextBtn) nextBtn.addEventListener("click", () => {
+            if (userAnswers[currentIndex] !== null) {
+                currentIndex++;
+                answerLocked = false;
+                render();
+            }
+        });
+
+        const resetMid = document.getElementById("restartFromMid");
+        if (resetMid) resetMid.addEventListener("click", () => restartQuiz());
     }
 
-    // Atualiza o feedback de uma questão específica sem recriar todo DOM
-    function updateQuestionFeedback(index) {
-        const feedbackDiv = document.getElementById(`feedback-${index}`);
-        if (feedbackDiv) {
-            generateFeedbackContent(index, feedbackDiv);
-        }
-        // opcional: pequeno efeito visual
+    function restartQuiz() {
+        currentIndex = 0;
+        userAnswers = new Array(questions.length).fill(null);
+        answerLocked = false;
+        render();
     }
 
-    // função para garantir que se houver inconsistência com radios (reset via dev tools) podemos re-sync, mas não necessário
-    // Inicialização
-    renderQuestions();
-    updateScore(); // exibe 0 inicial
-
-    // Adiciona small listener para sincronizar se algum rádio for alterado por evento externo
-    // já está no evento change. Todavia, se o usuário clicar no mesmo radio, não dispara change? implementação segura.
-    // Garantir que ao resetar não há perda. Quando clicar em outro, desmarca anterior e seta novo.
-    // Atualização total de score está ok.
+    render();
 </script>
 </body>
 </html>
